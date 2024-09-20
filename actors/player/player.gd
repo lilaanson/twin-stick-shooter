@@ -4,7 +4,8 @@ extends CharacterBody2D
 @export var move_speed: float = 100.0
 @export var hp_player: int = 2
 @export var health_label: RichTextLabel
-
+@export var hiddenChargeText: RichTextLabel
+@export var charge: RichTextLabel
 
 var can_move_right: bool = true
 var can_move_left: bool = true
@@ -28,23 +29,29 @@ func _input(event):
 			new_projectile.fire(projectile_forward, 500.0, !counting_down)
 			new_projectile.position = $projectileRefPoint.global_position
 	if (Input.is_action_just_pressed("shoot_burst")):
-		#UPDATE THESE FOR RIGHT DIRECTION
-		var new_projectile1 = projectile_scene.instantiate()
-		get_parent().add_child(new_projectile1)
-		var new_projectile2 = projectile_scene.instantiate()
-		get_parent().add_child(new_projectile2)
-		var new_projectile3 = projectile_scene.instantiate()
-		get_parent().add_child(new_projectile3)
-		
-		var projectile_forward1 = Vector2.from_angle(rotation + 2*PI/3)
-		new_projectile1.fire(projectile_forward1, 1000.0, counting_down)
-		new_projectile1.position = $projectileRefPoint.global_position
-		var projectile_forward2 = Vector2.from_angle(rotation - 2*PI/3)
-		new_projectile2.fire(projectile_forward2, 1000.0, counting_down)
-		new_projectile2.position = $projectileRefPoint.global_position
-		var projectile_forward3 = Vector2.from_angle(rotation)
-		new_projectile3.fire(projectile_forward3, 1000.0, counting_down)
-		new_projectile3.position = $projectileRefPoint.global_position
+		if hiddenChargeText.text == "true":
+			#UPDATE THESE FOR RIGHT DIRECTION
+			var new_projectile1 = projectile_scene.instantiate()
+			get_parent().add_child(new_projectile1)
+			var new_projectile2 = projectile_scene.instantiate()
+			get_parent().add_child(new_projectile2)
+			var new_projectile3 = projectile_scene.instantiate()
+			get_parent().add_child(new_projectile3)
+			
+			var projectile_forward1 = Vector2.from_angle(rotation + 2*PI/3)
+			new_projectile1.fire(projectile_forward1, 1000.0, true)
+			new_projectile1.position = $projectileRefPoint.global_position
+			var projectile_forward2 = Vector2.from_angle(rotation - 2*PI/3)
+			new_projectile2.fire(projectile_forward2, 1000.0, true)
+			new_projectile2.position = $projectileRefPoint.global_position
+			var projectile_forward3 = Vector2.from_angle(rotation)
+			new_projectile3.fire(projectile_forward3, 1000.0, true)
+			new_projectile3.position = $projectileRefPoint.global_position
+			
+			
+			hiddenChargeText.text = "false"
+			charge.text = "NOT CHARGED"
+			
 
 func _physics_process(delta):
 	if (buff_on):
@@ -63,15 +70,22 @@ func _physics_process(delta):
 		low_timer -= 1
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta) ##position?
 	if (collision): ##need to add a reset to true
-		#if collision.collider.name === "enemy"
-		if (hp_player==2):
-			print("first collision")
-			health_label.text = "[color=black]HEALTH: LOW[/color]"
-			hp_player -= 1
-			counting_down = true
-			buff_on = true
-		elif (not buff_on):
-			health_label.text = "DEAD"
+		print(collision.get_collider())
+		#if collision.collider.name === "enemy"	
+		if collision.get_collider().is_in_group("power_ups"):
+			collision.get_collider().queue_free()
+			if hiddenChargeText.text == "false":
+				hiddenChargeText.text = "true"
+				charge.text = "CHARGED"
+		else:	
+			if (hp_player==2):
+				print("first collision")
+				health_label.text = "[color=black]HEALTH: LOW[/color]"
+				hp_player -= 1
+				counting_down = true
+				buff_on = true
+			elif (not buff_on):
+				health_label.text = "DEAD"
 		
 
 		#print("COLLIISION !!")

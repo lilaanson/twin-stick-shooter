@@ -29,6 +29,7 @@ rightWall=""
 leftWall=""
 topWall=""
 bottomWall=""
+power_ups=""
 
 [input]
 

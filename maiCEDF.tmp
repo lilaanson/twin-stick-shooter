@@ -839,10 +839,11 @@ tile_set = SubResource("TileSet_0tjrg")
 tile_map_data = PackedByteArray("AAASAAMAAAADAB0AAAASAAQAAAADAB4AAAASAAUAAAADAB0AAAASAAYAAAADAB4AAAAQAAUAAAADABIAAAASAAEAAAAFABAAAAAVAAEAAAAHABAAAAAGAAEAAAAGABAAAAARAAQAAAABAA8AAAASAAIAAAAEABIAAAARAAUAAAAFABEAAAA=")
 tile_set = SubResource("TileSet_onuyy")
 
-[node name="player" parent="." node_paths=PackedStringArray("health_label", "hiddenChargeText", "charge") instance=ExtResource("1_ush7v")]
+[node name="player" parent="." node_paths=PackedStringArray("health_label", "charge") instance=ExtResource("1_ush7v")]
 position = Vector2(208, 115)
+move_speed = null
+hp_player = null
 health_label = NodePath("../health")
-hiddenChargeText = NodePath("../hiddenChargeText")
 charge = NodePath("../power")
 
 [node name="enemy" parent="." instance=ExtResource("5_1h780")]
@@ -908,10 +909,9 @@ fit_content = true
 [node name="projectile" parent="." instance=ExtResource("2_3tmon")]
 position = Vector2(-108, 53)
 
-[node name="powerUp" parent="." node_paths=PackedStringArray("charge", "hiddenChargeText") instance=ExtResource("6_gfmwx")]
+[node name="powerUp" parent="." node_paths=PackedStringArray("charge") instance=ExtResource("6_gfmwx")]
 position = Vector2(74, 111)
 charge = NodePath("../power")
-hiddenChargeText = NodePath("../hiddenChargeText")
 
 [node name="powerUp2" parent="." instance=ExtResource("6_gfmwx")]
 position = Vector2(50, 212)
@@ -927,18 +927,20 @@ position = Vector2(315, 128)
 
 [node name="power" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 165.0
-offset_top = 1.0
-offset_right = 565.0
-offset_bottom = 41.0
+offset_left = 157.0
+offset_top = -1.0
+offset_right = 557.0
+offset_bottom = 39.0
 scale = Vector2(0.470266, 0.470266)
 theme_override_fonts/normal_font = ExtResource("4_p0h3l")
 bbcode_enabled = true
-text = "[color=black]CHARGED[/color]"
+text = "[color=black]CHARGE: ▋[/color]"
 
-[node name="hiddenChargeText" type="RichTextLabel" parent="."]
+[node name="hiddenPowerCheck" type="RichTextLabel" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -71.0
+offset_top = -53.0
+offset_right = -31.0
+offset_bottom = -13.0
 bbcode_enabled = true
-text = "true"
+text = "1"

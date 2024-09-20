@@ -1,0 +1,34 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://b7h4aoc5je5pc"
+path="res://.godot/imported/PF Pixelscript Regular.ttf-dab5596b4d4308fd4717d4ea0a5ab0d4.fontdata"
+
+[deps]
+
+source_file="res://environment/PF Pixelscript Regular.ttf"
+dest_files=["res://.godot/imported/PF Pixelscript Regular.ttf-dab5596b4d4308fd4717d4ea0a5ab0d4.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

@@ -6,7 +6,7 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_yrw7e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vniej"]
-radius = 1.0
+radius = 2.0
 
 [node name="projectile" type="Area2D"]
 collision_layer = 0
@@ -14,7 +14,7 @@ collision_mask = 2
 script = ExtResource("1_0js5k")
 
 [node name="mainSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.01, 0.01)
+scale = Vector2(0.02, 0.02)
 texture = ExtResource("2_1mq7d")
 
 [node name="Sprite2D" type="Sprite2D" parent="mainSprite"]
