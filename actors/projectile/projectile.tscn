@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8qhuv5h20wai"]
+
+[ext_resource type="Script" path="res://actors/projectile/projectile.gd" id="1_0js5k"]
+[ext_resource type="Texture2D" uid="uid://dud11qprb1jyo" path="res://actors/projectile/bullet.png" id="2_1mq7d"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yrw7e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vniej"]
+radius = 1.0
+
+[node name="projectile" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_0js5k")
+
+[node name="mainSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_1mq7d")
+
+[node name="Sprite2D" type="Sprite2D" parent="mainSprite"]
+position = Vector2(-0.7, 0)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CanvasTexture_yrw7e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="mainSprite"]
+position = Vector2(-1.05, 0)
+scale = Vector2(0.3, 0.3)
+texture = SubResource("CanvasTexture_yrw7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vniej")
+
+[node name="timeToLive" type="Timer" parent="CollisionShape2D"]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="CollisionShape2D/timeToLive" to="." method="_on_time_to_live_timeout"]

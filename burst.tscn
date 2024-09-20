@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://du22i6hfq02v4"]
+
+[ext_resource type="Script" path="res://burst.gd" id="1_3a6ap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fauvw"]
+
+[node name="burst" type="Area2D"]
+script = ExtResource("1_3a6ap")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fauvw")
+
+[node name="Timer" type="Timer" parent="CollisionShape2D"]
