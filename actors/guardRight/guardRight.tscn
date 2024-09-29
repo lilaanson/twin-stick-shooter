@@ -1,0 +1,212 @@
+[gd_scene load_steps=15 format=3 uid="uid://d3dr56se5prtm"]
+
+[ext_resource type="Script" path="res://actors/guardRight/guard_right.gd" id="1_djtge"]
+[ext_resource type="Texture2D" uid="uid://cqcljo5bjdvv1" path="res://environment/enemySpritesFixed.png" id="1_gnar7"]
+[ext_resource type="PackedScene" uid="uid://7vx1rpwgocsf" path="res://enemy_projectile.tscn" id="2_0sqgw"]
+[ext_resource type="Script" path="res://actors/guardRight/idle.gd" id="2_t8vhg"]
+[ext_resource type="Script" path="res://actors/guardRight/chasing.gd" id="3_f3cl6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bikyt"]
+size = Vector2(20, 25)
+
+[sub_resource type="Animation" id="Animation_opjf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_gnar7")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_0wd6b"]
+resource_name = "left_turning_enemy_idle"
+length = 1.00002
+loop_mode = 1
+step = 0.166667
+
+[sub_resource type="Animation" id="Animation_u86ga"]
+resource_name = "right_shooter_enemy_chasing"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_gnar7")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_uq4k6"]
+resource_name = "right_shooter_enemy_idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 4, 6]
+}
+
+[sub_resource type="Animation" id="Animation_m1518"]
+resource_name = "shooter_enemy_chasing"
+loop_mode = 1
+step = 1.0
+
+[sub_resource type="Animation" id="Animation_l4bns"]
+resource_name = "shooter_enemy_idle"
+length = 1.00003
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_004gh"]
+_data = {
+"RESET": SubResource("Animation_opjf3"),
+"left_turning_enemy_idle": SubResource("Animation_0wd6b"),
+"right_shooter_enemy_chasing": SubResource("Animation_u86ga"),
+"right_shooter_enemy_idle": SubResource("Animation_uq4k6"),
+"shooter_enemy_chasing": SubResource("Animation_m1518"),
+"shooter_enemy_idle": SubResource("Animation_l4bns")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knkvv"]
+size = Vector2(200, 30)
+
+[node name="guardRight" type="CharacterBody2D" node_paths=PackedStringArray("initial_state") groups=["guardRight"]]
+collision_layer = 2
+collision_mask = 23
+motion_mode = 1
+script = ExtResource("1_djtge")
+ProjectileScene = ExtResource("2_0sqgw")
+initial_state = NodePath("States/idle")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_gnar7")
+hframes = 3
+vframes = 3
+
+[node name="projectileRefPoint" type="Node2D" parent="."]
+position = Vector2(15, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_bikyt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_004gh")
+}
+
+[node name="States" type="Node" parent="."]
+
+[node name="idle" type="Node" parent="States"]
+script = ExtResource("2_t8vhg")
+
+[node name="chasing" type="Node" parent="States"]
+script = ExtResource("3_f3cl6")
+
+[node name="DetectionRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+position = Vector2(80, -8)
+shape = SubResource("RectangleShape2D_knkvv")

@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@export var charge: RichTextLabel
-@export var hiddenChargeText: RichTextLabel
 
 
 func _physics_process(delta: float) -> void:
@@ -11,10 +9,6 @@ func _physics_process(delta: float) -> void:
 		#if collision.collider.name === "enemy"
 		if collision.get_collider().is_in_group("power_ups"):
 			queue_free()
-			var current_text = charge.text
-			if hiddenChargeText.text == "false":
-				hiddenChargeText.text == "true"
-				charge.text = "CHARGED"
 
 			
 			

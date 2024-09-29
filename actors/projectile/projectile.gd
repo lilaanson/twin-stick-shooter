@@ -5,23 +5,16 @@ var stun: bool = false
 var sin_value: int = 0
 var time = 0
 var t = 0.5 # influences moving towards target
-var p = 0.1 # influences oscillating
+var p = 0.1 # influences oscillatings
 
-func fire(forward: Vector2, speed: float, type: bool): #true = normal, false = stun
+func fire(forward: Vector2, speed: float): #true = normal, false = stun
 	velocity = forward * speed
 	look_at(position + forward)
-	stun = type
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-
-	if (stun):
-		position += velocity * delta
-	else:
-		time += delta
-		var perpendicular = Vector2(position.y, -position.x)
-		position += ((p * perpendicular * sin(time)) * velocity/80 * delta)
+	position += velocity * delta
 
 
 func _on_time_to_live_timeout() -> void:
@@ -29,5 +22,22 @@ func _on_time_to_live_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	(body as Enemy).hit(1)
-	queue_free()
+	if body is Enemy:
+		body.hit(1)
+		queue_free()
+	elif body is Runner:
+		body.hit(1)
+		queue_free()
+	elif body is guardRight:
+		reflect_off_guard(body)
+	# elif body.collision_layer == 5:
+		# print("hit wall")
+		# reflect_off_wall(body)
+		
+func reflect_off_wall(body: Node2D) -> void:
+	var normal = velocity.normalized() * -1  # Reflect off in opposite direction
+	velocity = velocity.bounce(normal)  # Use bounce method to reflect velocity
+
+func reflect_off_guard(body: Node2D) -> void:
+	var normal = (position - body.position).normalized()
+	velocity = velocity.bounce(normal)  # Use Godot's bounce method to reflect velocity off the guard
