@@ -16,6 +16,7 @@ func fire_projectile():
 func hit(damage_number: int):
 	hp -= damage_number
 	if (hp <= 0):
+		get_tree().get_root().get_node("Node2D/player").guard_counter()
 		queue_free()
 		
 		

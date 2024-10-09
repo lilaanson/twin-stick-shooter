@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=4 uid="uid://bkt1y0g7cl6q6"]
+[gd_scene load_steps=17 format=4 uid="uid://bkt1y0g7cl6q6"]
 
 [ext_resource type="Texture2D" uid="uid://bakgvoqomj6rb" path="res://environment/CosmicLilac_Tiles (1).png" id="1_ipuxu"]
 [ext_resource type="PackedScene" uid="uid://bo0pnly22c7g0" path="res://actors/player/player.tscn" id="1_ush7v"]
 [ext_resource type="PackedScene" uid="uid://b8qhuv5h20wai" path="res://actors/projectile/projectile.tscn" id="2_3tmon"]
+[ext_resource type="Texture2D" uid="uid://s2hepigfxvpn" path="res://environment/CosmicLilac_AnimatedSpriteSheet.png" id="2_wqutk"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_tii8h"]
 [ext_resource type="PackedScene" uid="uid://dd5ji7fsjxgyv" path="res://actors/enemy/enemy.tscn" id="5_1h780"]
-[ext_resource type="PackedScene" uid="uid://dcugeyh36twxx" path="res://power_ups.tscn" id="6_gfmwx"]
 [ext_resource type="PackedScene" uid="uid://dwk3skb5enw3g" path="res://runner.tscn" id="7_ap6of"]
 [ext_resource type="PackedScene" uid="uid://d3dr56se5prtm" path="res://actors/guardRight/guardRight.tscn" id="8_abgcg"]
 [ext_resource type="PackedScene" uid="uid://cbg66tc2abrpd" path="res://hud.tscn" id="9_xmume"]
+[ext_resource type="PackedScene" uid="uid://bj2mjk8r0qlfe" path="res://o_charge.tscn" id="10_vi2ke"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyqng"]
 texture = ExtResource("1_ipuxu")
@@ -285,6 +286,124 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 16
 sources/0 = SubResource("TileSetAtlasSource_t7ygq")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yywtw"]
+texture = ExtResource("2_wqutk")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+16:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+16:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+16:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_krmgs"]
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 16
+sources/0 = SubResource("TileSetAtlasSource_yywtw")
+
 [node name="Node2D" type="Node2D"]
 
 [node name="tileMapLayer1" type="TileMapLayer" parent="."]
@@ -296,6 +415,10 @@ tile_set = SubResource("TileSet_0mjf4")
 scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAADAAEAAAAHAAAAAAACAAEAAAALAAQAAAAEAAEAAAALAAQAAAABAAEAAAAKAAEAAAABAAIAAAAKAAIAAAAFAAEAAAAKAAEAAAAFAAIAAAAKAAIAAAAGAAEAAAAEAAIAAAAJAAEAAAAJAAQAAAAKAAEAAAAKAAQAAAAMAAEAAAAMAAEAAAAMAAIAAAAMAAIAAAANAAEAAAAMAAEAAAANAAIAAAAMAAIAAAAGAAIAAAAMAAQAAAALAAEAAAAKAAAAAAD7/wsAAAAKAAEAAGD8/wsAAAAKAAIAAGD7/wgAAAAFAAIAAGD7/wcAAAACAAEAAGD7/woAAAAGAAAAAGD7/wkAAAAHAAAAAGD9/wcAAAAMAAQAAAAXAAwAAAAIAAQAAFAXAA0AAAAJAAQAAFARAA4AAAABAAMAAAASAA4AAAACAAMAAAATAA4AAAABAAMAAAAUAA4AAAACAAMAAAAVAA4AAAABAAMAAAAWAA4AAAACAAMAAAAXAA4AAAACAAMAAAAYAA0AAAADAAIAAAAYAA4AAAADAAMAAAAYAAsAAAADAAEAAAAYAAwAAAADAAIAAAAYAAkAAAADAAEAAAAYAAoAAAADAAIAAAAYAAcAAAADAAEAAAAYAAgAAAADAAIAAAAYAAUAAAADAAEAAAAYAAYAAAADAAIAAAAXAAQAAAACAAAAAAAYAAQAAAADAAAAAAAXAAoAAAALAAQAAFAXAAsAAAAEAAIAAFAEAAIAAAALAAEAACACAAIAAAALAAEAAAAKAA8AAAAMAAEAAAAKABAAAAAMAAIAAAAJAA8AAAAMAAEAAAAJABAAAAAMAAIAAAD//w8AAAAIAAQAAAAAAA8AAAAJAAQAAAABAA8AAAAKAAQAAAD//xEAAAALAAEAAAAAABIAAAAMAAMAAAAAABQAAAAMAAMAAAACABMAAAALAAIAAAAGABMAAAALAAIAAAAHABAAAAALAAQAAAADABMAAAAGAAMAAAAKABIAAAAGAAMAAAAAABUAAAAGAAMAAAALABMAAAAHAAMAAAAMABEAAAAHAAMAAFANAA8AAAAKAAEAAAANABAAAAAKAAIAAAA=")
 tile_set = SubResource("TileSet_q2pcr")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="."]
+scale = Vector2(1.5, 1.5)
+tile_set = SubResource("TileSet_krmgs")
 
 [node name="enemy" parent="." instance=ExtResource("5_1h780")]
 position = Vector2(187, 291)
@@ -321,23 +444,97 @@ position = Vector2(420, 317)
 [node name="projectile" parent="." instance=ExtResource("2_3tmon")]
 position = Vector2(-108, 53)
 
-[node name="powerUp" parent="." instance=ExtResource("6_gfmwx")]
-position = Vector2(74, 111)
-
-[node name="powerUp2" parent="." instance=ExtResource("6_gfmwx")]
-position = Vector2(50, 212)
-
-[node name="powerUp3" parent="." instance=ExtResource("6_gfmwx")]
-position = Vector2(181, 188)
-
-[node name="powerUp4" parent="." instance=ExtResource("6_gfmwx")]
-position = Vector2(257, 73)
-
-[node name="powerUp5" parent="." instance=ExtResource("6_gfmwx")]
-position = Vector2(315, 128)
-
 [node name="guardRight" parent="." instance=ExtResource("8_abgcg")]
 position = Vector2(40, 88)
+
+[node name="runner" parent="." instance=ExtResource("7_ap6of")]
+position = Vector2(106, 446)
+
+[node name="HUD" parent="." instance=ExtResource("9_xmume")]
+
+[node name="enemy10" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(519, 280)
+
+[node name="enemy11" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(418, 140)
+
+[node name="enemy12" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(478, 277)
+
+[node name="enemy13" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(227, 428)
+
+[node name="enemy14" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(177, 477)
+
+[node name="enemy15" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(26, 474)
+
+[node name="enemy16" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(115, 163)
+
+[node name="enemy17" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(108, 72)
+
+[node name="enemy18" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(274, 157)
+
+[node name="enemy9" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(25, 269)
+
+[node name="enemy19" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(471, 179)
+
+[node name="enemy20" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(400, 230)
+
+[node name="enemy21" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(523, 297)
+
+[node name="enemy22" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(237, 81)
+
+[node name="enemy23" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(275, 118)
+
+[node name="enemy24" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(301, 347)
+
+[node name="enemy25" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(284, 464)
+
+[node name="enemy26" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(189, 459)
+
+[node name="enemy27" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(21, 479)
+
+[node name="enemy28" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(149, 83)
+
+[node name="enemy29" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(224, 286)
+
+[node name="enemy30" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(-83, 207)
+
+[node name="enemy31" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(-59, 235)
+
+[node name="enemy32" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(110, 106)
+
+[node name="enemy33" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(329, 196)
+
+[node name="enemy34" parent="." instance=ExtResource("5_1h780")]
+position = Vector2(76, 284)
+
+[node name="oCharge" parent="." instance=ExtResource("10_vi2ke")]
+position = Vector2(228, 444)
+
+[node name="oCharge2" parent="." instance=ExtResource("10_vi2ke")]
+position = Vector2(156, 83)
 
 [node name="player" parent="." instance=ExtResource("1_ush7v")]
 position = Vector2(18, 160)
@@ -352,8 +549,3 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 script = ExtResource("3_tii8h")
-
-[node name="runner" parent="." instance=ExtResource("7_ap6of")]
-position = Vector2(106, 446)
-
-[node name="HUD" parent="." instance=ExtResource("9_xmume")]

@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbg66tc2abrpd"]
+[gd_scene load_steps=11 format=3 uid="uid://cbg66tc2abrpd"]
 
 [ext_resource type="FontFile" uid="uid://64ipwm4ub6vo" path="res://environment/CCDesignerGenes Seven.ttf" id="1_1dgac"]
+[ext_resource type="Script" path="res://hud.gd" id="1_27nwk"]
 [ext_resource type="FontFile" uid="uid://deg7fjyfr0twd" path="res://environment/Sztos Regular.ttf" id="2_8eio2"]
+[ext_resource type="Texture2D" uid="uid://ceietn5lnj3r7" path="res://shared_scripts/PINK.png" id="2_47ejx"]
+[ext_resource type="Script" path="res://health_glow.gd" id="3_d6hoq"]
+[ext_resource type="Texture2D" uid="uid://82kkwbffgosq" path="res://environment/health.png" id="4_fvv6a"]
+[ext_resource type="Script" path="res://o_glow.gd" id="4_oogjd"]
+[ext_resource type="Texture2D" uid="uid://d178fxb6hdfww" path="res://environment/oxygen.png" id="5_y4t5x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6en4"]
 bg_color = Color(0.0941176, 0.129412, 0.364706, 1)
@@ -27,6 +33,19 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_27nwk")
+
+[node name="healthGlow" type="Sprite2D" parent="."]
+position = Vector2(322, 10)
+scale = Vector2(0.171825, 0.0238087)
+texture = ExtResource("2_47ejx")
+script = ExtResource("3_d6hoq")
+
+[node name="oGlow" type="Sprite2D" parent="."]
+position = Vector2(322, 24)
+scale = Vector2(0.171825, 0.0238087)
+texture = ExtResource("2_47ejx")
+script = ExtResource("4_oogjd")
 
 [node name="titleLabel" type="Label" parent="."]
 offset_left = 29.0
@@ -57,14 +76,57 @@ text = "DEFEND YOUR SHIP
 PRESS ENTER TO START"
 horizontal_alignment = 1
 
+[node name="waveLabel" type="Label" parent="."]
+offset_left = 355.0
+offset_top = 38.0
+offset_right = 681.0
+offset_bottom = 88.0
+theme_override_colors/font_shadow_color = Color(0.0941176, 0.129412, 0.364706, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 18
+theme_override_fonts/font = ExtResource("2_8eio2")
+theme_override_font_sizes/font_size = 31
+text = "SECOND WAVE"
+horizontal_alignment = 1
+
 [node name="healthBar" type="ProgressBar" parent="."]
 offset_left = 268.0
 offset_top = 6.0
 offset_right = 405.0
 offset_bottom = 33.0
-scale = Vector2(0.790881, 0.46211)
+scale = Vector2(0.797355, 0.293576)
 theme_override_styles/background = SubResource("StyleBoxFlat_h6en4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_u08v3")
-max_value = 10.0
 step = 1.0
+value = 100.0
 show_percentage = false
+
+[node name="oBar" type="ProgressBar" parent="."]
+offset_left = 268.0
+offset_top = 19.0
+offset_right = 405.0
+offset_bottom = 46.0
+scale = Vector2(0.797355, 0.293576)
+theme_override_styles/background = SubResource("StyleBoxFlat_h6en4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u08v3")
+max_value = 6000.0
+step = 0.5
+value = 6000.0
+show_percentage = false
+
+[node name="healthIcon" type="TextureRect" parent="."]
+offset_left = 252.0
+offset_top = 2.0
+offset_right = 292.0
+offset_bottom = 42.0
+scale = Vector2(0.3403, 0.3403)
+texture = ExtResource("4_fvv6a")
+
+[node name="oIcon" type="TextureRect" parent="."]
+offset_left = 252.0
+offset_top = 17.0
+offset_right = 292.0
+offset_bottom = 57.0
+scale = Vector2(0.337758, 0.337758)
+texture = ExtResource("5_y4t5x")

@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bj2mjk8r0qlfe"]
+
+[ext_resource type="Script" path="res://o_charge.gd" id="1_4qj8p"]
+[ext_resource type="Texture2D" uid="uid://bcg8djwgkphkm" path="res://glow2.png" id="1_6swo5"]
+[ext_resource type="Texture2D" uid="uid://s2hepigfxvpn" path="res://environment/CosmicLilac_AnimatedSpriteSheet.png" id="1_djlme"]
+[ext_resource type="Script" path="res://glow.gd" id="3_1jxxf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pp8cb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbr2h"]
+size = Vector2(14, 15)
+
+[node name="oCharge" type="Area2D" groups=["oUp"]]
+script = ExtResource("1_4qj8p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("CanvasItemMaterial_pp8cb")
+shape = SubResource("RectangleShape2D_rbr2h")
+
+[node name="glow" type="Sprite2D" parent="."]
+position = Vector2(-1, -1.19209e-07)
+scale = Vector2(0.0827092, 0.0751102)
+texture = ExtResource("1_6swo5")
+script = ExtResource("3_1jxxf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_djlme")
+hframes = 17
+vframes = 8
+frame = 78
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

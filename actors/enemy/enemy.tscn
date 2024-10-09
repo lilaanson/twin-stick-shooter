@@ -65,7 +65,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jdm1v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wfwbr"]
-radius = 60.0
+radius = 200.0
 
 [node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("initial_state") groups=["mainEnemy"]]
 collision_layer = 2

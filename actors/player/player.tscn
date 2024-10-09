@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b8qhuv5h20wai" path="res://actors/projectile/projectile.tscn" id="2_v8e01"]
 [ext_resource type="Texture2D" uid="uid://s2hepigfxvpn" path="res://environment/CosmicLilac_AnimatedSpriteSheet.png" id="4_5oa2u"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pr6c0"]
-radius = 7.07107
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nxis"]
+size = Vector2(20, 13)
 
 [sub_resource type="Animation" id="Animation_fe18d"]
 length = 0.001
@@ -492,7 +492,7 @@ frame = 115
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
-shape = SubResource("CircleShape2D_pr6c0")
+shape = SubResource("RectangleShape2D_0nxis")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../characterSprite")

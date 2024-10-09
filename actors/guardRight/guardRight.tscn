@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://actors/guardRight/chasing.gd" id="3_f3cl6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bikyt"]
-size = Vector2(20, 25)
+size = Vector2(25, 25)
 
 [sub_resource type="Animation" id="Animation_opjf3"]
 length = 0.001
@@ -189,7 +189,7 @@ vframes = 3
 position = Vector2(15, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(5, -6)
 shape = SubResource("RectangleShape2D_bikyt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

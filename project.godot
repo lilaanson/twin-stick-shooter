@@ -15,12 +15,17 @@ run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ScoreManager="*res://shared_scripts/score_manager.gd"
+PlayerHealthManager="*res://shared_scripts/PlayerHealthManager.gd"
+
 [display]
 
 window/size/viewport_width=384
 window/size/viewport_height=240
 window/stretch/mode="viewport"
-mouse_cursor/custom_image="res://environment/scopeSmaller.png"
+mouse_cursor/custom_image="res://SCOPENEWEST.png"
 
 [global_group]
 
@@ -35,6 +40,7 @@ mainEnemy=""
 guardRight=""
 player=""
 laser=""
+oUp=""
 
 [input]
 
@@ -75,6 +81,11 @@ use_knife={
 playing={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+replay_death={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
 ]
 }
 

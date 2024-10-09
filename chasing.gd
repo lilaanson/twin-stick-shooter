@@ -39,6 +39,5 @@ func process_state(delta: float):
 				animation_player.play("runner_back")
 	
 func runner_death(dead):
-	print("IN RUNNER DEATH")
 	chase_speed = 0
 	alive = false
